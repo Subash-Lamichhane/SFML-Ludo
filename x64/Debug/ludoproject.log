@@ -1,0 +1,18 @@
+﻿  Source.cpp
+C:\Users\Dell\Desktop\C++\ludoproject\PlayerYellow.h(16,157): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Dell\Desktop\C++\ludoproject\PlayerYellow.h(21,105): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Dell\Desktop\C++\ludoproject\dice.cpp(38,19): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Dell\Desktop\C++\ludoproject\Source.cpp(58,63): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+C:\Users\Dell\Desktop\C++\ludoproject\Source.cpp(58,38): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+  dice.cpp
+C:\Users\Dell\Desktop\C++\ludoproject\dice.cpp(38,19): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...
+  ludoproject.vcxproj -> C:\Users\Dell\Desktop\C++\ludoproject\x64\Debug\ludoproject.exe
