@@ -4,8 +4,11 @@
 #include "PlayerYellow.h"
 #include <iostream>
 
-PlayerYellow::PlayerYellow( float initialPosition_x, float initialPosition_y) {
-	y1.setPosition(initialPosition_x, initialPosition_y);
+PlayerYellow::PlayerYellow( float initialPositionx, float initialPositiony) {
+	
+	y1.setPosition(initialPositionx, initialPositiony);
+	firstPositionx = initialPositionx;
+	firstPositiony = initialPositiony;
 }
 PlayerYellow::~PlayerYellow(){}
 
@@ -16,24 +19,40 @@ void PlayerYellow::draw(sf::RenderWindow& window, float position_x, float positi
 	playerb.loadFromFile("Gotti/yellow.png");
 	y1.setTexture(&playerb);
 	y1.setPosition(position_x, position_y);
-	y1.setPosition(PlayerPositionx[1]-50, PlayerPositiony[1]-50);
+	y1.setPosition(PlayerPositionx[initialPosition_x]-50, PlayerPositiony[initialPosition_y]-50);
 	window.draw(y1);
 
-	sf::RectangleShape y2(sf::Vector2f(100.0f, 100.0f));
+	/*sf::RectangleShape y2(sf::Vector2f(100.0f, 100.0f));
 	y2.setTexture(&playerb);
 	y2.setPosition(position_x, position_y);
-	y2.setPosition(PlayerPositionx[50] - 50, PlayerPositiony[50] - 50);
+	y2.setPosition(PlayerPositionx[initialPosition_x] - 50, PlayerPositiony[initialPosition_y] - 50);
+	
+	window.draw(y2);*/
 	window.draw(y1);
-	window.draw(y2);
 }
-float PlayerYellow::getPositiony(int movex,int initialPositiony) {
+float PlayerYellow::getPositiony(int movex) {
 
-	return PlayerPositiony[initialPositiony + movex];
+	return PlayerPositiony[initialPosition_y + movex];
 
 }
-void PlayerYellow::setPosition(float x, float y) {
-	y1.setPosition(x, y);
+float PlayerYellow::getPositionx(int movex) {
 
+	return PlayerPositionx[initialPosition_y + movex];
+
+}
+void PlayerYellow::setPosition(float diceno) {
+	if(PlayerPositionx[initialPosition_x] == 100.f && PlayerPositiony[initialPosition_y] == 100.0f) {
+		if(diceno !=1)
+			y1.setPosition(getPositionx(diceno), getPositiony(diceno));
+	}
+
+	initialPosition_x += diceno;
+	initialPosition_y += diceno;
+}
+void PlayerYellow::resetPosition() {
+	initialPosition_x = 1;
+	initialPosition_y = 1;
+	y1.setPosition(firstPositionx, firstPositiony);
 }
 
 

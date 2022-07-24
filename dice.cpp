@@ -11,15 +11,16 @@ public:
     int diceFaceNum;
     bool toQuit = false;
 
-    void askToRollDice()
+    int askToRollDice()
     {
         char ans;
+        int diceno;
         std::cout << "\nWanna roll dice?(y/n)" << std::endl;
         std::cin >> ans;
         if (ans == 'y')
         {
             clearScreen();
-            generateRandomNum();
+            diceno=generateRandomNum();
             showDiceFaces();
         }
         else if (ans == 'n')
@@ -32,6 +33,7 @@ public:
             std::cout << "\nInvalid resonse. Try 'y' for yes and 'n' for no" << std::endl;
             askToRollDice(); //  Recursion
         }
+        return diceno;
     }
     int generateRandomNum()
     {
