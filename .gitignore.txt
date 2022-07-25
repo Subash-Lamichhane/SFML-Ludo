@@ -1,0 +1,7 @@
+/*.dll
+.vscode
+*.o
+*.exe
+merge.py
+x64/
+sfml_files/
