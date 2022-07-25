@@ -13,12 +13,12 @@ PlayerYellow::PlayerYellow( float initialPositionx, float initialPositiony) {
 PlayerYellow::~PlayerYellow(){}
 
 
-void PlayerYellow::draw(sf::RenderWindow& window, float position_x, float position_y ){
+void PlayerYellow::draw(sf::RenderWindow& window ){
 	sf::RectangleShape y1(sf::Vector2f(100.0f, 100.0f));
 	sf::Texture playerb;
 	playerb.loadFromFile("Gotti/yellow.png");
 	y1.setTexture(&playerb);
-	y1.setPosition(position_x, position_y);
+	//y1.setPosition(position_x, position_y);
 	y1.setPosition(PlayerPositionx[initialPosition_x]-50, PlayerPositiony[initialPosition_y]-50);
 	window.draw(y1);
 

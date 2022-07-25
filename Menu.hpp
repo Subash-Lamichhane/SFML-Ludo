@@ -24,4 +24,5 @@ private:
 	sf::Font font;
 	//	Array of menu elements declared
 	sf::Text menu[MAX_NUMBER_OF_LABELS];
+	float labelWidth;
 };

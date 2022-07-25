@@ -7,7 +7,7 @@
 Menu::Menu(float width, float height)
 {
 	//	Specify positions for labels
-	float labelWidth = width / 8 - 50;
+	labelWidth = width / 8 - 50;
 
 	if (!font.loadFromFile("Chocolate Covered Raindrops.ttf"))
 	{
@@ -69,6 +69,9 @@ void Menu::moveDown() {
 
 	}
 }
+
+
+
 
 int Menu::getPressedLabel() {
 	std::cout << selectedLabelIndex;

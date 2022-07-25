@@ -12,7 +12,7 @@ C:\Users\Dell\Desktop\C++\ludoproject\Source.cpp(17,36): warning C4244: 'argumen
           [
               T=unsigned int
           ]
-C:\Users\Dell\Desktop\C++\ludoproject\Source.cpp(126,51): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Dell\Desktop\C++\ludoproject\Source.cpp(137,55): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Dell\Desktop\C++\ludoproject\Source.cpp(187,25): warning C4551: function call missing argument list
+C:\Users\Dell\Desktop\C++\ludoproject\Source.cpp(118,51): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Dell\Desktop\C++\ludoproject\Source.cpp(132,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Dell\Desktop\C++\ludoproject\Source.cpp(180,25): warning C4551: function call missing argument list
   ludoproject.vcxproj -> C:\Users\Dell\Desktop\C++\ludoproject\x64\Debug\ludoproject.exe

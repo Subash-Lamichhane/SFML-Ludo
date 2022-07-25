@@ -8,7 +8,7 @@ private:
 public:
 	PlayerYellow(float initialPositionx,float initialPositiony);
 	~PlayerYellow();
-	void draw(sf::RenderWindow& window, float position_x, float position_y);
+	void draw(sf::RenderWindow& window);
 	float getPositiony(int movex);
 	float getPositionx(int movex);
 	//void move(int);

@@ -35,10 +35,10 @@ int main()
 
             //while
 
-            if (event.type == sf::Event::KeyPressed ||event.type == sf::Event::MouseButtonPressed)
+            if (event.type == sf::Event::KeyPressed || event.type == sf::Event::MouseButtonPressed)
             {
                 //	Up arrow key pressed
-                if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up ||))
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up  ))
                 {
                     //	Shift selected label to down
                     menu.moveUp();
@@ -61,10 +61,9 @@ int main()
                     }
                     if (menu.getPressedLabel() == 0)
                     {
-                        if (event.type == sf::Event::Closed)
-                            MENU_WINDOW.close();
+                        
                         //Main game loop here
-                        window.create(sf::VideoMode(1000, 1000), "Credits");
+                        window.create(sf::VideoMode(1000, 1000), "LUDO");
                         //sf::RectangleShape b1(sf::Vector2f(100.0f, 100.0f));
                         sf::RectangleShape background(sf::Vector2f(1000.0f, 1000.0f));
                         //sf::CircleShape g1(40.0f);
@@ -74,11 +73,7 @@ int main()
                         sf::Texture playerb;
                         sf::Texture player;
 
-                        // Menu main_menu(1000.f,1000.f);
-                         //main_menu.setMenu();
-
-
-
+                           //Yellow Player
                         PlayerYellow yellowPlayer1(100.f, 100.f);
                         PlayerYellow yellowPlayer2(100.f, 100.f);
                         PlayerYellow yellowPlayer3(200.f, 200.f);
@@ -102,14 +97,11 @@ int main()
                         t1.setString("Home");
                         t1.setPosition(window.getSize().x / 2.2f, 400.f);
 
-                        //g1.setPosition(115.0f, 125.0f);
-                        //g1.setFillColor(sf::Color::Blue);
 
                         background.setOrigin(500.0f, 500.0f);
                         background.setPosition(500.0f, 500.0f);
                         background.setTexture(&boardTexture);
 
-                        //b1.setTexture(&playerb);
                         playertexturesize.x /= 4;
 
 
@@ -125,49 +117,46 @@ int main()
                         cout << "/n You got: " << diceno << endl;
                         yellowPlayer1.setPosition(diceno);
 
+                        //game window
                         while (window.isOpen())
                         {
                             sf::Event event;
                             while (window.pollEvent(event))
                             {
-                                if (event.type == sf::Event::Closed)
+                                if (event.type == sf::Event::Closed) {
                                     window.close();
+                                }                       
                             }
-                            cout << "/n You got: " << diceno << endl;
-                            yellowPlayer1.setPosition(diceno);
 
-                            /*
-                             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
-                                 g1.move(0.0f, -0.1f);
-                             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
-                                 g1.move(-0.1f, 0.0f);
-                             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
-                                 g1.move(0.1f, 0.0f);
-                             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
-                                 g1.move(0.0f, 0.1f);*/
+                                cout << "/n You got: " << diceno << endl;
+                                yellowPlayer1.setPosition(diceno);
 
-
-
+                                /*
+                                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
+                                     g1.move(0.0f, -0.1f);
+                                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
+                                     g1.move(-0.1f, 0.0f);
+                                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
+                                     g1.move(0.1f, 0.0f);
+                                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
+                                     g1.move(0.0f, 0.1f);*/
 
 
-                            window.clear();
-                            window.draw(background);
-                            //window.draw(b1);
-                            yellowPlayer1.draw(window, 132.f, 840.f);
-                            //window.draw(g1); 
-                            window.draw(t1);
-                            window.display();
+                                window.clear();
+                                window.draw(background);
+                                //window.draw(b1);
+                                yellowPlayer1.draw(window);
+                                //window.draw(g1); 
+                                window.draw(t1);
+                                window.display();
 
 
-                            diceno = d.askToRollDice();
-                            if (d.toQuit)
-                            {
-                                d.endUserMessage();
-                            }
-                            //playerx.display(window);
+                                diceno = d.askToRollDice();
+                                //playerx.display(window);
 
                         }
-                        
+
+
 
                         /*
                          if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
@@ -203,7 +192,7 @@ int main()
             MENU_WINDOW.display();
         }
 
-    
+
     }
     return 0;
 }
