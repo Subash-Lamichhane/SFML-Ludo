@@ -9,49 +9,59 @@ PlayerYellow::PlayerYellow( float initialPositionx, float initialPositiony) {
 	y1.setPosition(initialPositionx, initialPositiony);
 	firstPositionx = initialPositionx;
 	firstPositiony = initialPositiony;
+	std::cout << "firstPositionx:"<<firstPositionx;
+	y1.setPosition(firstPositionx, firstPositiony);
 }
 PlayerYellow::~PlayerYellow(){}
 
 
-void PlayerYellow::draw(sf::RenderWindow& window ){
+void PlayerYellow::draw(sf::RenderWindow& window,int diceno ){
 	sf::RectangleShape y1(sf::Vector2f(100.0f, 100.0f));
 	sf::Texture playerb;
 	playerb.loadFromFile("Gotti/yellow.png");
 	y1.setTexture(&playerb);
-	//y1.setPosition(position_x, position_y);
-	y1.setPosition(PlayerPositionx[initialPosition_x]-50, PlayerPositiony[initialPosition_y]-50);
-	window.draw(y1);
 
-	/*sf::RectangleShape y2(sf::Vector2f(100.0f, 100.0f));
-	y2.setTexture(&playerb);
-	y2.setPosition(position_x, position_y);
-	y2.setPosition(PlayerPositionx[initialPosition_x] - 50, PlayerPositiony[initialPosition_y] - 50);
+	if (initialPosition_x==0 && initialPosition_y==0) {
+		if (diceno == 1) {
+			y1.setPosition(getPositionx(diceno), getPositiony(diceno));
+		}
+		else {
+			y1.setPosition(firstPositionx, firstPositiony);
+		}
+
+	}
+	else {
+		y1.setPosition(getPositionx(diceno), getPositiony(diceno));
+	}
 	
-	window.draw(y2);*/
+	//y1.setPosition(PlayerPositionx[initialPosition_x]-50, PlayerPositiony[initialPosition_y]-50);
 	window.draw(y1);
 }
 float PlayerYellow::getPositiony(int movex) {
 
-	return PlayerPositiony[initialPosition_y + movex];
+	initialPosition_y += movex;
+	return PlayerPositiony[initialPosition_y]-50;
 
 }
 float PlayerYellow::getPositionx(int movex) {
-
-	return PlayerPositionx[initialPosition_y + movex];
+	initialPosition_x += movex;
+	return PlayerPositionx[initialPosition_x]-50;
 
 }
-void PlayerYellow::setPosition(float diceno) {
-	if(PlayerPositionx[initialPosition_x] == 100.f && PlayerPositiony[initialPosition_y] == 100.0f) {
-		if(diceno !=1)
+/*void PlayerYellow::setPosition(float diceno) {
+	if (initialPosition_x == 0 && initialPosition_y == 0) {
+		if (diceno == 1) {
+			std::cout << "Position" << getPositionx(diceno);
 			y1.setPosition(getPositionx(diceno), getPositiony(diceno));
+		}
 	}
-
-	initialPosition_x += diceno;
-	initialPosition_y += diceno;
-}
+	else {
+		y1.setPosition(getPositionx(diceno), getPositiony(diceno));
+	}
+}*/
 void PlayerYellow::resetPosition() {
-	initialPosition_x = 1;
-	initialPosition_y = 1;
+	initialPosition_x = 0;
+	initialPosition_y = 0;
 	y1.setPosition(firstPositionx, firstPositiony);
 }
 

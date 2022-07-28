@@ -3,6 +3,7 @@
 #include<SFML/Window.hpp>
 #include<SFML/System.hpp>
 #include "PlayerYellow.h"
+#include "PlayerBlue.h"
 #include "dice.cpp"
 #include "Menu.hpp"
 
@@ -10,6 +11,8 @@ using namespace std;
 
 int main()
 {
+    //Variable declaration
+    int Playerturn = 1,i=0;
 
 
     sf::RenderWindow window, MENU_WINDOW;
@@ -64,20 +67,21 @@ int main()
                         
                         //Main game loop here
                         window.create(sf::VideoMode(1000, 1000), "LUDO");
-                        //sf::RectangleShape b1(sf::Vector2f(100.0f, 100.0f));
+                        
                         sf::RectangleShape background(sf::Vector2f(1000.0f, 1000.0f));
-                        //sf::CircleShape g1(40.0f);
                         sf::Font font;
                         sf::Text t1;
                         sf::Texture boardTexture;
                         sf::Texture playerb;
                         sf::Texture player;
 
-                           //Yellow Player
-                        PlayerYellow yellowPlayer1(100.f, 100.f);
-                        PlayerYellow yellowPlayer2(100.f, 100.f);
-                        PlayerYellow yellowPlayer3(200.f, 200.f);
-                        PlayerYellow yellowPlayer4(200.f, 200.f);
+                           //Yellow Player object declaration
+                        PlayerYellow yellowPlayer1(207.f, 800.f);
+                        //PlayerYellow yellowPlayer2(100.f, 100.f);
+                        //PlayerYellow yellowPlayer3(200.f, 200.f);
+                        //PlayerYellow yellowPlayer4(200.f, 200.f);
+
+                        PlayerBlue bluePlayer1(807.f, 800.f);
 
                         dice d;
                         int diceno = 0;
@@ -106,16 +110,11 @@ int main()
 
 
                         cout << playertexturesize.x << "/n" << playertexturesize.y;
-                        //b1.setOrigin(playertexturesize.x / 2, playertexturesize.y / 2);
-                        //b1.setPosition(840.f, 830.f);
 
                         sf::Text text;
                         text.setString("Home");
                         text.setCharacterSize(24);
                         text.setStyle(sf::Text::Bold);
-
-                        cout << "/n You got: " << diceno << endl;
-                        yellowPlayer1.setPosition(diceno);
 
                         //game window
                         while (window.isOpen())
@@ -128,45 +127,37 @@ int main()
                                 }                       
                             }
 
-                                cout << "/n You got: " << diceno << endl;
-                                yellowPlayer1.setPosition(diceno);
-
-                                /*
-                                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
-                                     g1.move(0.0f, -0.1f);
-                                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
-                                     g1.move(-0.1f, 0.0f);
-                                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
-                                     g1.move(0.1f, 0.0f);
-                                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
-                                     g1.move(0.0f, 0.1f);*/
-
-
+                                //Drawing parts
                                 window.clear();
-                                window.draw(background);
-                                //window.draw(b1);
-                                yellowPlayer1.draw(window);
-                                //window.draw(g1); 
+                                window.draw(background); 
+                                
+
+                                //Players Turn
+                                if (Playerturn == 1) {
+                                    cout << i;
+                                    i++;
+                                    yellowPlayer1.draw(window, diceno);
+                                    bluePlayer1.draw(window, 0);
+                                    cout << "Player turn 1";
+                                    Playerturn += 1;
+                                }
+                                else if (Playerturn == 2) {
+                                    cout << "Player turn 2";
+                                    bluePlayer1.draw(window, diceno);
+                                    yellowPlayer1.draw(window, 0);
+                                    Playerturn -= 1;
+                                }
+
                                 window.draw(t1);
                                 window.display();
 
-
                                 diceno = d.askToRollDice();
+                                cout << "/n You got: " << diceno << endl;
+                                
                                 //playerx.display(window);
 
                         }
 
-
-
-                        /*
-                         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
-                             g1.move(0.0f, -0.1f);
-                         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
-                             g1.move(-0.1f, 0.0f);
-                         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
-                             g1.move(0.1f, 0.0f);
-                         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
-                             g1.move(0.0f, 0.1f);*/
 
 
                     }
@@ -196,3 +187,19 @@ int main()
     }
     return 0;
 }
+
+
+
+
+
+//yellowPlayer1.setPosition(diceno);
+
+/*
+ if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
+     g1.move(0.0f, -0.1f);
+ if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
+     g1.move(-0.1f, 0.0f);
+ if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
+     g1.move(0.1f, 0.0f);
+ if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
+     g1.move(0.0f, 0.1f);*/

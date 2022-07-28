@@ -1,1 +1,18 @@
-﻿  ludoproject.vcxproj -> C:\Users\Dell\Desktop\C++\ludoproject\x64\Debug\ludoproject.exe
+﻿  Source.cpp
+C:\Users\Dell\Desktop\C++\ludoproject\PlayerYellow.h(17,157): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Dell\Desktop\C++\ludoproject\PlayerYellow.h(22,105): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Dell\Desktop\C++\ludoproject\PlayerBlue.h(18,45): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Dell\Desktop\C++\ludoproject\PlayerBlue.h(23,152): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Dell\Desktop\C++\ludoproject\dice.cpp(40,19): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Dell\Desktop\C++\ludoproject\Source.cpp(20,61): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+C:\Users\Dell\Desktop\C++\ludoproject\Source.cpp(20,36): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+C:\Users\Dell\Desktop\C++\ludoproject\Source.cpp(167,25): warning C4551: function call missing argument list
+  ludoproject.vcxproj -> C:\Users\Dell\Desktop\C++\ludoproject\x64\Debug\ludoproject.exe
