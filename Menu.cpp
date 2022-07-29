@@ -6,6 +6,7 @@
 
 Menu::Menu(float width, float height)
 {
+
 	//	Specify positions for labels
 	labelWidth = width / 8 - 50;
 
@@ -64,7 +65,7 @@ void Menu::moveDown() {
 	if (selectedLabelIndex + 1 <= MAX_NUMBER_OF_LABELS - 1)
 	{
 		menu[selectedLabelIndex].setFillColor(sf::Color::White);
-		
+
 		selectedLabelIndex++;
 		menu[selectedLabelIndex].setFillColor(sf::Color::Red);
 
@@ -74,7 +75,7 @@ void Menu::checkUsingMouse(sf::Vector2i mouseClickPos) {
 
 
 	//For Play
-	if (mouseClickPos.x <= menu[0].getPosition().x+50 && mouseClickPos.x >= menu[0].getPosition().x && mouseClickPos.y <= menu[0].getPosition().y + 30 && mouseClickPos.y >= menu[0].getPosition().y) {
+	if (mouseClickPos.x <= menu[0].getPosition().x + 50 && mouseClickPos.x >= menu[0].getPosition().x && mouseClickPos.y <= menu[0].getPosition().y + 30 && mouseClickPos.y >= menu[0].getPosition().y) {
 		//menu[selectedLabelIndex].setFillColor(sf::Color::White);
 		menu[1].setFillColor(sf::Color::White);
 		menu[2].setFillColor(sf::Color::White);
@@ -84,7 +85,6 @@ void Menu::checkUsingMouse(sf::Vector2i mouseClickPos) {
 
 	//For credits
 	if (mouseClickPos.x <= menu[1].getPosition().x + 80 && mouseClickPos.x >= menu[1].getPosition().x && mouseClickPos.y <= menu[1].getPosition().y + 50 && mouseClickPos.y >= menu[1].getPosition().y) {
-		std::cout << "Call sucess";
 		menu[0].setFillColor(sf::Color::White);
 		menu[2].setFillColor(sf::Color::White);
 		selectedLabelIndex = 1;
@@ -102,6 +102,22 @@ void Menu::checkUsingMouse(sf::Vector2i mouseClickPos) {
 
 
 
+}
+int Menu::returnClickedValue(sf::Vector2i mouseClickPos) {
+	if (mouseClickPos.x <= menu[0].getPosition().x + 50 && mouseClickPos.x >= menu[0].getPosition().x && mouseClickPos.y <= menu[0].getPosition().y + 30 && mouseClickPos.y >= menu[0].getPosition().y) {
+		return 0;
+	}
+		
+	else if (mouseClickPos.x <= menu[1].getPosition().x + 80 && mouseClickPos.x >= menu[1].getPosition().x && mouseClickPos.y <= menu[1].getPosition().y + 50 && mouseClickPos.y >= menu[1].getPosition().y) {
+		return 1;
+	}
+	else if (mouseClickPos.x <= menu[2].getPosition().x + 50 && mouseClickPos.x >= menu[2].getPosition().x && mouseClickPos.y <= menu[2].getPosition().y + 30 && mouseClickPos.y >= menu[2].getPosition().y) {
+		return 2;
+	}
+	else {
+		return 10;
+	}
+	
 }
 
 

@@ -14,7 +14,7 @@ using namespace std;
 int main()
 {
     //Variable declaration
-    int Playerturn = 1,i=0;
+    int Playerturn = 1, i = 0;
 
 
     sf::RenderWindow window, MENU_WINDOW;
@@ -33,6 +33,8 @@ int main()
     while (MENU_WINDOW.isOpen())
     {
         sf::Event event;
+        sf::Vector2i mouseClickPosition = sf::Mouse::getPosition(MENU_WINDOW);
+        menu.checkUsingMouse(mouseClickPosition);
         while (MENU_WINDOW.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
@@ -43,7 +45,7 @@ int main()
             if (event.type == sf::Event::KeyPressed || event.type == sf::Event::MouseButtonPressed)
             {
                 //	Up arrow key pressed
-                if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up  ))
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
                 {
                     //	Shift selected label to down
                     menu.moveUp();
@@ -54,24 +56,23 @@ int main()
                     //	Shift selected label to down
                     menu.moveDown();
                 }
-                sf::Vector2i mouseClickPosition = sf::Mouse::getPosition(MENU_WINDOW);
-                menu.checkUsingMouse(mouseClickPosition);
-                
 
+
+                sf::Vector2i mouseClickPos = sf::Mouse::getPosition(MENU_WINDOW);
                 //	Enter key pressed
 
-                if (event.key.code == sf::Keyboard::Enter )
+                if (event.key.code == sf::Keyboard::Enter || event.type == sf::Event::MouseButtonPressed)
                 {
-                    if (menu.getPressedLabel() == 1)
+                    if (menu.getPressedLabel() == 1 || menu.returnClickedValue(mouseClickPos) == 1)
                     {
                         //credits here
                     }
-                    if (menu.getPressedLabel() == 0)
+                    if (menu.getPressedLabel() == 0 || menu.returnClickedValue(mouseClickPos) == 0)
                     {
-                        
+
                         //Main game loop here
                         window.create(sf::VideoMode(1000, 1000), "LUDO");
-                        
+
                         sf::RectangleShape background(sf::Vector2f(1000.0f, 1000.0f));
                         sf::Font font;
                         sf::Text t1;
@@ -79,7 +80,7 @@ int main()
                         sf::Texture playerb;
                         sf::Texture player;
 
-                           //Yellow Player object declaration
+                        //Yellow Player object declaration
                         PlayerYellow yellowPlayer1(207.f, 800.f);
                         //PlayerYellow yellowPlayer2(100.f, 100.f);
                         //PlayerYellow yellowPlayer3(200.f, 200.f);
@@ -87,7 +88,7 @@ int main()
 
                         PlayerBlue bluePlayer1(807.f, 800.f);
 
-                        PlayerGreen greenPlayer1(207.f,77.f);
+                        PlayerGreen greenPlayer1(207.f, 77.f);
 
                         PlayerRed redPlayer1(807.f, 77.f);
 
@@ -133,67 +134,67 @@ int main()
                             {
                                 if (event.type == sf::Event::Closed) {
                                     window.close();
-                                }                       
+                                }
                             }
 
-                                //Drawing parts
-                                window.clear();
-                                window.draw(background); 
-                                
+                            //Drawing parts
+                            window.clear();
+                            window.draw(background);
 
-                                //Players Turn
-                                if (Playerturn == 1) {
-                                    cout << i;
-                                    i++;
-                                    yellowPlayer1.draw(window, diceno);
-                                    bluePlayer1.draw(window, 0);
-                                    greenPlayer1.draw(window, 0);
-                                    redPlayer1.draw(window, 0);
-                                    cout << "\n \n Player green turn";
-                                    Playerturn += 1;
-                                }
 
-                                else if (Playerturn == 2) {
-                                    cout << "\n\nPlayer red turn 3";
-                                    greenPlayer1.draw(window, diceno);
-                                    bluePlayer1.draw(window, 0);
-                                    yellowPlayer1.draw(window, 0);
-                                    redPlayer1.draw(window, 0);
-                                    Playerturn++;
-                                }
+                            //Players Turn
+                            if (Playerturn == 1) {
+                                cout << i;
+                                i++;
+                                yellowPlayer1.draw(window, diceno);
+                                bluePlayer1.draw(window, 0);
+                                greenPlayer1.draw(window, 0);
+                                redPlayer1.draw(window, 0);
+                                cout << "\n \n Player green turn";
+                                Playerturn += 1;
+                            }
 
-                                else if (Playerturn == 3) {
-                                    cout << "\n\nPlayer blue turn";
-                                    redPlayer1.draw(window, diceno);
-                                    greenPlayer1.draw(window, 0);
-                                    bluePlayer1.draw(window, 0);
-                                    yellowPlayer1.draw(window, 0);
-                                    Playerturn++;
-                                }
+                            else if (Playerturn == 2) {
+                                cout << "\n\nPlayer red turn 3";
+                                greenPlayer1.draw(window, diceno);
+                                bluePlayer1.draw(window, 0);
+                                yellowPlayer1.draw(window, 0);
+                                redPlayer1.draw(window, 0);
+                                Playerturn++;
+                            }
 
-                                else if (Playerturn == 4) {
-                                    cout << "\n\nPlayer yellow turn";
-                                    bluePlayer1.draw(window, diceno);
-                                    yellowPlayer1.draw(window, 0);
-                                    greenPlayer1.draw(window, 0);
-                                    redPlayer1.draw(window, 0);
-                                    Playerturn = 1;
-                                }
+                            else if (Playerturn == 3) {
+                                cout << "\n\nPlayer blue turn";
+                                redPlayer1.draw(window, diceno);
+                                greenPlayer1.draw(window, 0);
+                                bluePlayer1.draw(window, 0);
+                                yellowPlayer1.draw(window, 0);
+                                Playerturn++;
+                            }
 
-                                window.draw(t1);
-                                window.display();
+                            else if (Playerturn == 4) {
+                                cout << "\n\nPlayer yellow turn";
+                                bluePlayer1.draw(window, diceno);
+                                yellowPlayer1.draw(window, 0);
+                                greenPlayer1.draw(window, 0);
+                                redPlayer1.draw(window, 0);
+                                Playerturn = 1;
+                            }
 
-                                diceno = d.askToRollDice();
-                                cout << "/n You got: " << diceno << endl;
-                                
-                                //playerx.display(window);
+                            window.draw(t1);
+                            window.display();
+
+                            diceno = d.askToRollDice();
+                            cout << "/n You got: " << diceno << endl;
+
+                            //playerx.display(window);
 
                         }
 
 
 
                     }
-                    if (menu.getPressedLabel() == 2)
+                    if (menu.getPressedLabel() == 2 || menu.returnClickedValue(mouseClickPos) == 2)
                     {
                         MENU_WINDOW.close();
                         exit;
