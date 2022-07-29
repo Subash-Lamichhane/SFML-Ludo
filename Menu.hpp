@@ -18,6 +18,7 @@ public:
 	void moveUp();
 	void moveDown();
 	int getPressedLabel();
+	void checkUsingMouse(sf::Vector2i mouseCLickPos);
 
 private:
 	int selectedLabelIndex;

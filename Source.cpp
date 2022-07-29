@@ -52,13 +52,15 @@ int main()
                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down))
                 {
                     //	Shift selected label to down
-                    cout << "called move down";
                     menu.moveDown();
                 }
+                sf::Vector2i mouseClickPosition = sf::Mouse::getPosition(MENU_WINDOW);
+                menu.checkUsingMouse(mouseClickPosition);
+                
 
                 //	Enter key pressed
 
-                if (event.key.code == sf::Keyboard::Enter)
+                if (event.key.code == sf::Keyboard::Enter )
                 {
                     if (menu.getPressedLabel() == 1)
                     {

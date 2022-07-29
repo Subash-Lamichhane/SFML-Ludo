@@ -50,6 +50,7 @@ void Menu::draw(sf::RenderWindow& window)
 }
 
 void Menu::moveUp() {
+	std::cout << selectedLabelIndex;
 	if (selectedLabelIndex - 1 >= 0)
 	{
 		menu[selectedLabelIndex].setFillColor(sf::Color::White);
@@ -62,12 +63,45 @@ void Menu::moveUp() {
 void Menu::moveDown() {
 	if (selectedLabelIndex + 1 <= MAX_NUMBER_OF_LABELS - 1)
 	{
-		std::cout << selectedLabelIndex << "\n";
 		menu[selectedLabelIndex].setFillColor(sf::Color::White);
+		
 		selectedLabelIndex++;
 		menu[selectedLabelIndex].setFillColor(sf::Color::Red);
 
 	}
+}
+void Menu::checkUsingMouse(sf::Vector2i mouseClickPos) {
+
+
+	//For Play
+	if (mouseClickPos.x <= menu[0].getPosition().x+50 && mouseClickPos.x >= menu[0].getPosition().x && mouseClickPos.y <= menu[0].getPosition().y + 30 && mouseClickPos.y >= menu[0].getPosition().y) {
+		//menu[selectedLabelIndex].setFillColor(sf::Color::White);
+		menu[1].setFillColor(sf::Color::White);
+		menu[2].setFillColor(sf::Color::White);
+		selectedLabelIndex = 0;
+		menu[0].setFillColor(sf::Color::Red);
+	}
+
+	//For credits
+	if (mouseClickPos.x <= menu[1].getPosition().x + 80 && mouseClickPos.x >= menu[1].getPosition().x && mouseClickPos.y <= menu[1].getPosition().y + 50 && mouseClickPos.y >= menu[1].getPosition().y) {
+		std::cout << "Call sucess";
+		menu[0].setFillColor(sf::Color::White);
+		menu[2].setFillColor(sf::Color::White);
+		selectedLabelIndex = 1;
+		menu[1].setFillColor(sf::Color::Red);
+	}
+
+	//For exit
+	if (mouseClickPos.x <= menu[2].getPosition().x + 50 && mouseClickPos.x >= menu[2].getPosition().x && mouseClickPos.y <= menu[2].getPosition().y + 30 && mouseClickPos.y >= menu[2].getPosition().y) {
+		//menu[selectedLabelIndex].setFillColor(sf::Color::White);
+		menu[0].setFillColor(sf::Color::White);
+		menu[1].setFillColor(sf::Color::White);
+		selectedLabelIndex = 2;
+		menu[2].setFillColor(sf::Color::Red);
+	}
+
+
+
 }
 
 
