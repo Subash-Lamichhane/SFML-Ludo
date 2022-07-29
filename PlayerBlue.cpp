@@ -9,6 +9,8 @@ PlayerBlue::PlayerBlue(float initialPositionx, float initialPositiony) {
 	y1.setPosition(initialPositionx, initialPositiony);
 	firstPositionx = initialPositionx;
 	firstPositiony = initialPositiony;
+	PlayerPositiony[0] = initialPositiony;
+	PlayerPositionx[0] = initialPositionx;
 	y1.setPosition(firstPositionx, firstPositiony);
 }
 PlayerBlue::~PlayerBlue() {}
@@ -61,7 +63,7 @@ void PlayerBlue::setPosition(float diceno) {
 
 
 void PlayerBlue::resetPosition() {
-	initialPositionBlue_x = 1;
-	initialPositionBlue_y = 1;
+	initialPositionBlue_x = 0;
+	initialPositionBlue_y = 0;
 	y1.setPosition(firstPositionx, firstPositiony);
 }

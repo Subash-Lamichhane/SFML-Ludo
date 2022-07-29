@@ -9,7 +9,8 @@ PlayerYellow::PlayerYellow( float initialPositionx, float initialPositiony) {
 	y1.setPosition(initialPositionx, initialPositiony);
 	firstPositionx = initialPositionx;
 	firstPositiony = initialPositiony;
-	std::cout << "firstPositionx:"<<firstPositionx;
+	PlayerPositiony[0] = initialPositiony;
+	PlayerPositionx[0] = initialPositionx;
 	y1.setPosition(firstPositionx, firstPositiony);
 }
 PlayerYellow::~PlayerYellow(){}

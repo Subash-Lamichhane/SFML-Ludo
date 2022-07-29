@@ -4,6 +4,8 @@
 #include<SFML/System.hpp>
 #include "PlayerYellow.h"
 #include "PlayerBlue.h"
+#include "PlayerGreen.h"
+#include "PlayerRed.h"
 #include "dice.cpp"
 #include "Menu.hpp"
 
@@ -83,6 +85,11 @@ int main()
 
                         PlayerBlue bluePlayer1(807.f, 800.f);
 
+                        PlayerGreen greenPlayer1(207.f,77.f);
+
+                        PlayerRed redPlayer1(807.f, 77.f);
+
+
                         dice d;
                         int diceno = 0;
 
@@ -109,7 +116,7 @@ int main()
                         playertexturesize.x /= 4;
 
 
-                        cout << playertexturesize.x << "/n" << playertexturesize.y;
+                        //cout << playertexturesize.x << "\n" << playertexturesize.y;
 
                         sf::Text text;
                         text.setString("Home");
@@ -138,14 +145,37 @@ int main()
                                     i++;
                                     yellowPlayer1.draw(window, diceno);
                                     bluePlayer1.draw(window, 0);
-                                    cout << "Player turn 1";
+                                    greenPlayer1.draw(window, 0);
+                                    redPlayer1.draw(window, 0);
+                                    cout << "\n \n Player green turn";
                                     Playerturn += 1;
                                 }
+
                                 else if (Playerturn == 2) {
-                                    cout << "Player turn 2";
+                                    cout << "\n\nPlayer red turn 3";
+                                    greenPlayer1.draw(window, diceno);
+                                    bluePlayer1.draw(window, 0);
+                                    yellowPlayer1.draw(window, 0);
+                                    redPlayer1.draw(window, 0);
+                                    Playerturn++;
+                                }
+
+                                else if (Playerturn == 3) {
+                                    cout << "\n\nPlayer blue turn";
+                                    redPlayer1.draw(window, diceno);
+                                    greenPlayer1.draw(window, 0);
+                                    bluePlayer1.draw(window, 0);
+                                    yellowPlayer1.draw(window, 0);
+                                    Playerturn++;
+                                }
+
+                                else if (Playerturn == 4) {
+                                    cout << "\n\nPlayer yellow turn";
                                     bluePlayer1.draw(window, diceno);
                                     yellowPlayer1.draw(window, 0);
-                                    Playerturn -= 1;
+                                    greenPlayer1.draw(window, 0);
+                                    redPlayer1.draw(window, 0);
+                                    Playerturn = 1;
                                 }
 
                                 window.draw(t1);
