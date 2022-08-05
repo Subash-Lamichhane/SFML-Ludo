@@ -67,3 +67,10 @@ void PlayerBlue::resetPosition() {
 	initialPositionBlue_y = 0;
 	y1.setPosition(firstPositionx, firstPositiony);
 }
+float PlayerBlue::getPosx() {
+	return y1.getPosition().x;
+
+}
+float PlayerBlue::getPosy() {
+	return y1.getPosition().y;
+}

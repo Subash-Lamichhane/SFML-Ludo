@@ -41,11 +41,19 @@ void PlayerGreen::draw(sf::RenderWindow& window, int diceno) {
 float PlayerGreen::getPositiony(int movex) {
 
 	initialPosition_y += movex;
-	return PlayerPositiony[initialPosition_y] - 50;
+	return PlayerPositiony[initialPosition_y] - 51;
 
 }
 float PlayerGreen::getPositionx(int movex) {
 	initialPosition_x += movex;
-	return PlayerPositionx[initialPosition_x] - 50;
+	return PlayerPositionx[initialPosition_x] - 51;
 
+}
+float PlayerGreen::getPosx() {
+	return y1.getPosition().x;
+
+
+}
+float PlayerGreen::getPosy() {
+	return y1.getPosition().y;
 }

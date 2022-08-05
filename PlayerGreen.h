@@ -11,6 +11,8 @@ public:
 	void draw(sf::RenderWindow& window, int diceno);
 	float getPositiony(int movex);
 	float getPositionx(int movex);
+	float getPosx();
+	float getPosy();
 	//void move(int);
 	float PlayerPositiony[58] = { 0.,433.333,433.333,433.333,433.333,433.333,
 							   366.666,300.,233.333,166.667,100.,33.333,33.33,33.33,100.,166.667,233.333,300.,366.666,433.333,433.333,433.333,433.333,433.333,433.333,

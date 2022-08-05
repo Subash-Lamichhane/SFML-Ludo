@@ -28,6 +28,7 @@ void PlayerYellow::draw(sf::RenderWindow& window,int diceno ){
 		}
 		else {
 			y1.setPosition(firstPositionx, firstPositiony);
+
 		}
 
 	}
@@ -41,12 +42,13 @@ void PlayerYellow::draw(sf::RenderWindow& window,int diceno ){
 float PlayerYellow::getPositiony(int movex) {
 
 	initialPosition_y += movex;
-	return PlayerPositiony[initialPosition_y]-50;
+	return PlayerPositiony[initialPosition_y]-52;
 
 }
 float PlayerYellow::getPositionx(int movex) {
+	
 	initialPosition_x += movex;
-	return PlayerPositionx[initialPosition_x]-50;
+	return PlayerPositionx[initialPosition_x]-52;
 
 }
 /*void PlayerYellow::setPosition(float diceno) {
@@ -65,26 +67,17 @@ void PlayerYellow::resetPosition() {
 	initialPosition_y = 0;
 	y1.setPosition(firstPositionx, firstPositiony);
 }
+float PlayerYellow::getPosx() {
+	return y1.getPosition().x;
+	std::cout << "called";
+
+}
+float PlayerYellow::getPosy() {
+	return y1.getPosition().y;
+}
 
 
-/*Players::move(int gotti)
-{
-	if (gotti == 1) {
-		y1.................................................
-	}
-	if (gotti == 2) {
 
-	}
-	if (gotti == 3) {
 
-	}
-	if (gotti == 4) {
 
-	}
-	if (gotti == 5) {
 
-	}
-	if (gotti == 6) {
-
-	}
-}*/

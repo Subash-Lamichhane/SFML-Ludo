@@ -41,12 +41,12 @@ void PlayerRed::draw(sf::RenderWindow& window, int diceno) {
 }
 float PlayerRed::getPositiony(int movex) {
 	initialPositionBlue_y += movex;
-	return PlayerPositiony[initialPositionBlue_y] - 50;
+	return PlayerPositiony[initialPositionBlue_y] - 49;
 
 }
 float PlayerRed::getPositionx(int movex) {
 	initialPositionBlue_x += movex;
-	return PlayerPositionx[initialPositionBlue_x] - 50;
+	return PlayerPositionx[initialPositionBlue_x] - 49;
 
 }
 void PlayerRed::setPosition(float diceno) {
@@ -66,4 +66,10 @@ void PlayerRed::resetPosition() {
 	initialPositionBlue_x = 0;
 	initialPositionBlue_y = 0;
 	y1.setPosition(firstPositionx, firstPositiony);
+}
+float PlayerRed::getPosx() {
+	return y1.getPosition().x;
+}
+float PlayerRed::getPosy() {
+	return y1.getPosition().y;
 }
