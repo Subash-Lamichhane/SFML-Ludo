@@ -23,6 +23,8 @@ int main()
     float Green1PosX, Green1PosY, Green2PosX, Green2PosY, Green3PosX, Green3PosY, Green4PosX, Green4PosY;
     float Red1PosX, Red1PosY, Red2PosX, Red2PosY, Red3PosX, Red3PosY, Red4PosX, Red4PosY;
     float MousePosY, MousePosX;
+    bool is720P = 0;
+    float viewRatio = 1;
 
 
     sf::RenderWindow window, MENU_WINDOW;
@@ -158,6 +160,10 @@ int main()
                                 if (event.type == sf::Event::Closed) {
                                     window.close();
                                 }
+                            }
+                            if (is720P) {
+                                window.setView(view);
+                                viewRatio = 1.5;
                             }
 
                             window.clear();
@@ -325,31 +331,31 @@ int main()
                                         Yellow4PosX = yellowPlayer4.getPosx();
                                         Yellow4PosY = yellowPlayer4.getPosy();
 
-                                        MousePosX = sf::Mouse::getPosition(window).x;
-                                        MousePosY = sf::Mouse::getPosition(window).y;
+                                        MousePosX = sf::Mouse::getPosition(window).x * viewRatio;
+                                        MousePosY = sf::Mouse::getPosition(window).y * viewRatio;
 
 
-                                        if (MousePosX >= yellowPlayer1.getPositionx(0) + 30 && MousePosX <= yellowPlayer1.getPositionx(0) + 80 && MousePosY >= yellowPlayer1.getPositiony(0) + 30 && MousePosY <= yellowPlayer1.getPositiony(0) + 80
-                                            || (MousePosX >= Yellow1PosX + 30 && MousePosX <= Yellow1PosX + 80 &&
-                                                MousePosY >= Yellow1PosY + 30 && MousePosY <= Yellow1PosY + 80)) {
+                                        if (MousePosX >= yellowPlayer1.getPositionx(0) + 30./ viewRatio && MousePosX <= yellowPlayer1.getPositionx(0) + 80./ viewRatio && MousePosY >= yellowPlayer1.getPositiony(0) + 30./ viewRatio && MousePosY <= yellowPlayer1.getPositiony(0) + 80./ viewRatio
+                                            || (MousePosX >= Yellow1PosX + 30./ viewRatio && MousePosX <= Yellow1PosX + 80./viewRatio &&
+                                                MousePosY >= Yellow1PosY + 30./ viewRatio && MousePosY <= Yellow1PosY + 80./viewRatio)) {
                                             moveYellowPlayer = 1;
                                         }
 
-                                        if (MousePosX >= yellowPlayer2.getPositionx(0)+30 && MousePosX <= yellowPlayer2.getPositionx(0) + 80 && MousePosY >= yellowPlayer2.getPositiony(0)+30 && MousePosY <= yellowPlayer2.getPositiony(0) + 80
-                                            || (MousePosX >= Yellow2PosX+30 && MousePosX <= Yellow2PosX + 80 &&
-                                            MousePosY >= Yellow2PosY+30 && MousePosY <= Yellow2PosY + 80) ) {
+                                        if (MousePosX >= yellowPlayer2.getPositionx(0)+30. / viewRatio && MousePosX <= yellowPlayer2.getPositionx(0) + 80. / viewRatio && MousePosY >= yellowPlayer2.getPositiony(0)+30. / viewRatio && MousePosY <= yellowPlayer2.getPositiony(0) + 80. / viewRatio
+                                            || (MousePosX >= Yellow2PosX+30./ viewRatio && MousePosX <= Yellow2PosX + 80./ viewRatio &&
+                                                MousePosY >= Yellow2PosY+30./ viewRatio && MousePosY <= Yellow2PosY + 80./ viewRatio) ) {
                                             moveYellowPlayer = 2;
                                             cout << "mousePos=" << sf::Mouse::getPosition(window).x << endl;
                                             cout << "PlayerPosition=" << yellowPlayer2.getPosx() << endl << endl;
                                         }
-                                        if (MousePosX >= yellowPlayer3.getPositionx(0) + 30 && MousePosX <= yellowPlayer3.getPositionx(0) + 80 && MousePosY >= yellowPlayer3.getPositiony(0) + 30 && MousePosY <= yellowPlayer3.getPositiony(0) + 80
-                                            || (MousePosX >= Yellow3PosX + 30 && MousePosX <= Yellow3PosX + 80 &&
-                                                MousePosY >= Yellow3PosY + 30 && MousePosY <= Yellow3PosY + 80)) {
+                                        if (MousePosX >= yellowPlayer3.getPositionx(0) + 30. / viewRatio && MousePosX <= yellowPlayer3.getPositionx(0) + 80. / viewRatio && MousePosY >= yellowPlayer3.getPositiony(0) + 30. / viewRatio && MousePosY <= yellowPlayer3.getPositiony(0) + 80. / viewRatio
+                                            || (MousePosX >= Yellow3PosX + 30./ viewRatio && MousePosX <= Yellow3PosX + 80./ viewRatio &&
+                                                MousePosY >= Yellow3PosY + 30./ viewRatio && MousePosY <= Yellow3PosY + 80./ viewRatio)) {
                                             moveYellowPlayer = 3;
                                         }
-                                        if (MousePosX >= yellowPlayer4.getPositionx(0) + 30 && MousePosX <= yellowPlayer4.getPositionx(0) + 80 && MousePosY >= yellowPlayer4.getPositiony(0) + 30 && MousePosY <= yellowPlayer4.getPositiony(0) + 80
-                                            || (MousePosX >= Yellow4PosX + 30 && MousePosX <= Yellow4PosX + 80 &&
-                                                MousePosY >= Yellow4PosY + 30 && MousePosY <= Yellow4PosY + 80)) {
+                                        if (MousePosX >= yellowPlayer4.getPositionx(0) + 30. / viewRatio && MousePosX <= yellowPlayer4.getPositionx(0) + 80 && MousePosY >= yellowPlayer4.getPositiony(0) + 30. / viewRatio && MousePosY <= yellowPlayer4.getPositiony(0) + 80. / viewRatio
+                                            || (MousePosX >= Yellow4PosX + 30./ viewRatio && MousePosX <= Yellow4PosX + 80./ viewRatio &&
+                                                MousePosY >= Yellow4PosY + 30./ viewRatio && MousePosY <= Yellow4PosY + 80./ viewRatio)) {
                                             moveYellowPlayer = 4;
                                         }
 
@@ -373,29 +379,29 @@ int main()
                                         Green4PosX = greenPlayer4.getPosx();
                                         Green4PosY = greenPlayer4.getPosy();
 
-                                        MousePosX = sf::Mouse::getPosition(window).x;
-                                        MousePosY = sf::Mouse::getPosition(window).y;
+                                        MousePosX = sf::Mouse::getPosition(window).x*viewRatio;
+                                        MousePosY = sf::Mouse::getPosition(window).y*viewRatio;
 
-                                        if (MousePosX >= greenPlayer1.getPositionx(0) + 30 && MousePosX <= greenPlayer1.getPositionx(0) + 80 && MousePosY >= greenPlayer1.getPositiony(0) + 30 && MousePosY <= greenPlayer1.getPositiony(0) + 80
-                                            || (MousePosX >= Green1PosX + 30 && MousePosX <= Green1PosX + 80 &&
-                                                MousePosY >= Green1PosY + 30 && MousePosY <= Green1PosY + 80)) {
+                                        if (MousePosX >= greenPlayer1.getPositionx(0) + 30. / viewRatio && MousePosX <= greenPlayer1.getPositionx(0) + 80. / viewRatio && MousePosY >= greenPlayer1.getPositiony(0) + 30. / viewRatio && MousePosY <= greenPlayer1.getPositiony(0) + 80. / viewRatio
+                                            || (MousePosX >= Green1PosX + 30. / viewRatio && MousePosX <= Green1PosX + 80. / viewRatio &&
+                                                MousePosY >= Green1PosY + 30. / viewRatio && MousePosY <= Green1PosY + 80. / viewRatio)) {
                                             moveGreenPlayer = 1;
                                         }
 
-                                        if (MousePosX >= greenPlayer2.getPositionx(0) + 30 && MousePosX <= greenPlayer2.getPositionx(0) + 80 && MousePosY >= greenPlayer2.getPositiony(0) + 30 && MousePosY <= greenPlayer2.getPositiony(0) + 80
-                                            || (MousePosX >= Green2PosX + 30 && MousePosX <= Green2PosX + 80 &&
-                                                MousePosY >= Green2PosY + 30 && MousePosY <= Green2PosY + 80)) {
+                                        if (MousePosX >= greenPlayer2.getPositionx(0) + 30. / viewRatio && MousePosX <= greenPlayer2.getPositionx(0) + 80. / viewRatio && MousePosY >= greenPlayer2.getPositiony(0) + 30. / viewRatio && MousePosY <= greenPlayer2.getPositiony(0) + 80. / viewRatio
+                                            || (MousePosX >= Green2PosX + 30. / viewRatio && MousePosX <= Green2PosX + 80. / viewRatio &&
+                                                MousePosY >= Green2PosY + 30. / viewRatio && MousePosY <= Green2PosY + 80. / viewRatio)) {
                                             moveGreenPlayer = 2;
 
                                         }
-                                        if (MousePosX >= greenPlayer3.getPositionx(0) + 30 && MousePosX <= greenPlayer3.getPositionx(0) + 80 && MousePosY >= greenPlayer3.getPositiony(0) + 30 && MousePosY <= greenPlayer3.getPositiony(0) + 80
-                                            || (MousePosX >= Green3PosX + 30 && MousePosX <= Green3PosX + 80 &&
-                                                MousePosY >= Green3PosY + 30 && MousePosY <= Green3PosY + 80)) {
+                                        if (MousePosX >= greenPlayer3.getPositionx(0) + 30. / viewRatio && MousePosX <= greenPlayer3.getPositionx(0) + 80. / viewRatio && MousePosY >= greenPlayer3.getPositiony(0) + 30. / viewRatio && MousePosY <= greenPlayer3.getPositiony(0) + 80. / viewRatio
+                                            || (MousePosX >= Green3PosX + 30. / viewRatio && MousePosX <= Green3PosX + 80. / viewRatio &&
+                                                MousePosY >= Green3PosY + 30. / viewRatio && MousePosY <= Green3PosY + 80. / viewRatio)) {
                                             moveGreenPlayer = 3;
                                         }
-                                        if (MousePosX >= greenPlayer4.getPositionx(0) + 30 && MousePosX <= greenPlayer4.getPositionx(0) + 80 && MousePosY >= greenPlayer4.getPositiony(0) + 30 && MousePosY <= greenPlayer4.getPositiony(0) + 80
-                                            || (MousePosX >= Green4PosX + 30 && MousePosX <= Green4PosX + 80 &&
-                                                MousePosY >= Green4PosY + 30 && MousePosY <= Green4PosY + 80)) {
+                                        if (MousePosX >= greenPlayer4.getPositionx(0) + 30. / viewRatio && MousePosX <= greenPlayer4.getPositionx(0) + 80. / viewRatio && MousePosY >= greenPlayer4.getPositiony(0) + 30 && MousePosY <= greenPlayer4.getPositiony(0) + 80. / viewRatio
+                                            || (MousePosX >= Green4PosX + 30. / viewRatio && MousePosX <= Green4PosX + 80. / viewRatio &&
+                                                MousePosY >= Green4PosY + 30. / viewRatio && MousePosY <= Green4PosY + 80. / viewRatio)) {
                                             moveGreenPlayer = 4;
                                         }
 
@@ -420,29 +426,29 @@ int main()
                                         Red4PosX = redPlayer4.getPosx();
                                         Red4PosY = redPlayer4.getPosy();
 
-                                        MousePosX = sf::Mouse::getPosition(window).x;
-                                        MousePosY = sf::Mouse::getPosition(window).y;
+                                        MousePosX = sf::Mouse::getPosition(window).x*viewRatio;
+                                        MousePosY = sf::Mouse::getPosition(window).y*viewRatio;
 
-                                        if (MousePosX >= redPlayer1.getPositionx(0) + 30 && MousePosX <= redPlayer1.getPositionx(0) + 80 && MousePosY >= redPlayer1.getPositiony(0) + 30 && MousePosY <= redPlayer1.getPositiony(0) + 80
-                                            || (MousePosX >= Red1PosX + 30 && MousePosX <= Red1PosX + 80 &&
-                                                MousePosY >= Red1PosY + 30 && MousePosY <= Red1PosY + 80)) {
+                                        if (MousePosX >= redPlayer1.getPositionx(0) + 30. / viewRatio && MousePosX <= redPlayer1.getPositionx(0) + 80. / viewRatio && MousePosY >= redPlayer1.getPositiony(0) + 30. / viewRatio && MousePosY <= redPlayer1.getPositiony(0) + 80. / viewRatio
+                                            || (MousePosX >= Red1PosX + 30. / viewRatio && MousePosX <= Red1PosX + 80. / viewRatio &&
+                                                MousePosY >= Red1PosY + 30. / viewRatio && MousePosY <= Red1PosY + 80. / viewRatio)) {
                                             moveRedPlayer = 1;
                                         }
 
-                                        if (MousePosX >= redPlayer2.getPositionx(0) + 30 && MousePosX <= redPlayer2.getPositionx(0) + 80 && MousePosY >= redPlayer2.getPositiony(0) + 30 && MousePosY <= redPlayer2.getPositiony(0) + 80
-                                            || (MousePosX >= Red2PosX + 30 && MousePosX <= Red2PosX + 80 &&
-                                                MousePosY >= Red2PosY + 30 && MousePosY <= Red2PosY + 80)) {
+                                        if (MousePosX >= redPlayer2.getPositionx(0) + 30 && MousePosX <= redPlayer2.getPositionx(0) + 80. / viewRatio && MousePosY >= redPlayer2.getPositiony(0) + 30. / viewRatio && MousePosY <= redPlayer2.getPositiony(0) + 80. / viewRatio
+                                            || (MousePosX >= Red2PosX + 30. / viewRatio && MousePosX <= Red2PosX + 80. / viewRatio &&
+                                                MousePosY >= Red2PosY + 30. / viewRatio && MousePosY <= Red2PosY + 80. / viewRatio)) {
                                             moveRedPlayer = 2;
 
                                         }
-                                        if (MousePosX >= redPlayer3.getPositionx(0) + 30 && MousePosX <= redPlayer3.getPositionx(0) + 80 && MousePosY >= redPlayer3.getPositiony(0) + 30 && MousePosY <= redPlayer3.getPositiony(0) + 80
+                                        if (MousePosX >= redPlayer3.getPositionx(0) + 30 && MousePosX <= redPlayer3.getPositionx(0) + 80. / viewRatio && MousePosY >= redPlayer3.getPositiony(0) + 30. / viewRatio && MousePosY <= redPlayer3.getPositiony(0) + 80. / viewRatio
                                             || (MousePosX >= Red3PosX + 30 && MousePosX <= Red3PosX + 80 &&
                                                 MousePosY >= Red3PosY + 30 && MousePosY <= Red3PosY + 80)) {
                                             moveRedPlayer = 3;
                                         }
-                                        if (MousePosX >= redPlayer4.getPositionx(0) + 30 && MousePosX <= redPlayer4.getPositionx(0) + 80 && MousePosY >= redPlayer4.getPositiony(0) + 30 && MousePosY <= redPlayer4.getPositiony(0) + 80
-                                            || (MousePosX >= Red4PosX + 30 && MousePosX <= Red4PosX + 80 &&
-                                                MousePosY >= Red4PosY + 30 && MousePosY <= Red4PosY + 80)) {
+                                        if (MousePosX >= redPlayer4.getPositionx(0) + 30 && MousePosX <= redPlayer4.getPositionx(0) + 80. / viewRatio && MousePosY >= redPlayer4.getPositiony(0) + 30. / viewRatio && MousePosY <= redPlayer4.getPositiony(0) + 80. / viewRatio
+                                            || (MousePosX >= Red4PosX + 30. / viewRatio && MousePosX <= Red4PosX + 80. / viewRatio &&
+                                                MousePosY >= Red4PosY + 30. / viewRatio && MousePosY <= Red4PosY + 80. / viewRatio)) {
                                             moveRedPlayer = 4;
                                         }
                                     }
@@ -467,29 +473,29 @@ int main()
                                         Blue4PosX = bluePlayer4.getPosx();
                                         Blue4PosY = bluePlayer4.getPosy();
 
-                                        MousePosX = sf::Mouse::getPosition(window).x;
-                                        MousePosY = sf::Mouse::getPosition(window).y;
+                                        MousePosX = sf::Mouse::getPosition(window).x*viewRatio;
+                                        MousePosY = sf::Mouse::getPosition(window).y*viewRatio;
 
-                                        if (MousePosX >= bluePlayer1.getPositionx(0) + 30 && MousePosX <= bluePlayer1.getPositionx(0) + 80 && MousePosY >= bluePlayer1.getPositiony(0) + 30 && MousePosY <= yellowPlayer1.getPositiony(0) + 80
-                                            || (MousePosX >= Blue1PosX + 30 && MousePosX <= Blue1PosX + 80 &&
-                                                MousePosY >= Blue1PosY + 30 && MousePosY <= Blue1PosY + 80)) {
+                                        if (MousePosX >= bluePlayer1.getPositionx(0) + 30. / viewRatio && MousePosX <= bluePlayer1.getPositionx(0) + 80. / viewRatio && MousePosY >= bluePlayer1.getPositiony(0) + 30. / viewRatio && MousePosY <= yellowPlayer1.getPositiony(0) + 80. / viewRatio
+                                            || (MousePosX >= Blue1PosX + 30. / viewRatio && MousePosX <= Blue1PosX + 80. / viewRatio &&
+                                                MousePosY >= Blue1PosY + 30. / viewRatio && MousePosY <= Blue1PosY + 80. / viewRatio)) {
                                             moveBluePlayer = 1;
                                         }
 
-                                        if (MousePosX >= bluePlayer2.getPositionx(0) + 30 && MousePosX <= bluePlayer2.getPositionx(0) + 80 && MousePosY >= bluePlayer2.getPositiony(0) + 30 && MousePosY <= bluePlayer2.getPositiony(0) + 80
-                                            || (MousePosX >= Blue2PosX + 30 && MousePosX <= Blue2PosX + 80 &&
-                                                MousePosY >= Blue2PosY + 30 && MousePosY <= Blue2PosY + 80)) {
+                                        if (MousePosX >= bluePlayer2.getPositionx(0) + 30. / viewRatio && MousePosX <= bluePlayer2.getPositionx(0) + 80. / viewRatio && MousePosY >= bluePlayer2.getPositiony(0) + 30. / viewRatio && MousePosY <= bluePlayer2.getPositiony(0) + 80. / viewRatio
+                                            || (MousePosX >= Blue2PosX + 30. / viewRatio && MousePosX <= Blue2PosX + 80. / viewRatio &&
+                                                MousePosY >= Blue2PosY + 30. / viewRatio && MousePosY <= Blue2PosY + 80. / viewRatio)) {
                                             moveBluePlayer = 2;
                                           
                                         }
-                                        if (MousePosX >= bluePlayer3.getPositionx(0) + 30 && MousePosX <= bluePlayer3.getPositionx(0) + 80 && MousePosY >= bluePlayer3.getPositiony(0) + 30 && MousePosY <= bluePlayer3.getPositiony(0) + 80
-                                            || (MousePosX >= Blue3PosX + 30 && MousePosX <= Blue3PosX + 80 &&
-                                                MousePosY >= Blue3PosY + 30 && MousePosY <= Blue3PosY + 80)) {
+                                        if (MousePosX >= bluePlayer3.getPositionx(0) + 30. / viewRatio && MousePosX <= bluePlayer3.getPositionx(0) + 80. / viewRatio && MousePosY >= bluePlayer3.getPositiony(0) + 30. / viewRatio && MousePosY <= bluePlayer3.getPositiony(0) + 80. / viewRatio
+                                            || (MousePosX >= Blue3PosX + 30. / viewRatio && MousePosX <= Blue3PosX + 80. / viewRatio &&
+                                                MousePosY >= Blue3PosY + 30. / viewRatio && MousePosY <= Blue3PosY + 80. / viewRatio)) {
                                             moveBluePlayer = 3;
                                         }
-                                        if (MousePosX >= bluePlayer4.getPositionx(0) + 30 && MousePosX <= bluePlayer4.getPositionx(0) + 80 && MousePosY >= bluePlayer4.getPositiony(0) + 30 && MousePosY <= bluePlayer4.getPositiony(0) + 80
-                                            || (MousePosX >= Blue4PosX + 30 && MousePosX <= Blue4PosX + 80 &&
-                                                MousePosY >= Blue4PosY + 30 && MousePosY <= Blue4PosY + 80)) {
+                                        if (MousePosX >= bluePlayer4.getPositionx(0) + 30 && MousePosX <= bluePlayer4.getPositionx(0) + 80 && MousePosY >= bluePlayer4.getPositiony(0) + 30. / viewRatio && MousePosY <= bluePlayer4.getPositiony(0) + 80. / viewRatio
+                                            || (MousePosX >= Blue4PosX + 30. / viewRatio && MousePosX <= Blue4PosX + 80. / viewRatio &&
+                                                MousePosY >= Blue4PosY + 30. / viewRatio && MousePosY <= Blue4PosY + 80. / viewRatio)) {
                                             moveBluePlayer = 4;
                                         }
 
