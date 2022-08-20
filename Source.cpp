@@ -2066,13 +2066,13 @@ int dicerollfunc(sf::RenderWindow& window, int playerTurn)
 												player.setString("Yellow Player got.");
 											}
 											if (playerTurn == 2) {
-												player.setString("Yellow Player got.");
+												player.setString("Green Player got.");
 											}
 											if (playerTurn == 3) {
-												player.setString("Yellow Player got.");
+												player.setString("Red Player got.");
 											}
 											if (playerTurn == 4) {
-												player.setString("Yellow Player got.");
+												player.setString("Blue Player got.");
 											}
 											player.setPosition(0, 10);
 
