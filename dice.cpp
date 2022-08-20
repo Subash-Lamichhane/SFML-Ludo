@@ -1,6 +1,6 @@
 //  Dice Simulator in C++
 
-#include <iostream>
+/*#include <iostream>
 #include <cstdlib>
 #include <ctime>
 
@@ -15,8 +15,9 @@ public:
     {
         char ans;
         int diceno;
-        std::cout << "\nWanna roll dice?(y/n)" << std::endl;
-        std::cin >> ans;
+        //std::cout << "\nWanna roll dice?(y/n)" << std::endl;
+        //std::cin >> ans;
+        ans = 'y';
         if (ans == 'y')
         {
             clearScreen();
@@ -114,3 +115,4 @@ public:
         std::cout << "Have a good day!!" << std::endl;
     }
 };
+*/

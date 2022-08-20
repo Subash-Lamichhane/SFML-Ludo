@@ -24,7 +24,7 @@ void PlayerRed::draw(sf::RenderWindow& window, int diceno) {
 	y1.setTexture(&playerb);
 
 
-	if (initialPositionBlue_x == 0 && initialPositionBlue_y == 0) {
+	if (initialPositionRed_x == 0 && initialPositionRed_y == 0) {
 		if (diceno == 1) {
 			y1.setPosition(getPositionx(diceno), getPositiony(diceno));
 		}
@@ -40,19 +40,24 @@ void PlayerRed::draw(sf::RenderWindow& window, int diceno) {
 	window.draw(y1);
 }
 float PlayerRed::getPositiony(int movex) {
-	initialPositionBlue_y += movex;
-	return PlayerPositiony[initialPositionBlue_y] - 49;
+	initialPositionRed_y += movex;
+	if (initialPositionRed_y > 58) {
+		initialPositionRed_y = 58 - (initialPositionRed_y - 58);
+	}
+	return PlayerPositiony[initialPositionRed_y] - 50;
 
 }
 float PlayerRed::getPositionx(int movex) {
-	initialPositionBlue_x += movex;
-	return PlayerPositionx[initialPositionBlue_x] - 49;
+	initialPositionRed_x += movex;
+	if (initialPositionRed_x > 58) {
+		initialPositionRed_x = 58 - (initialPositionRed_x - 58);
+	}
+	return PlayerPositionx[initialPositionRed_x] - 50;
 
 }
 void PlayerRed::setPosition(float diceno) {
-	if (initialPositionBlue_x == 0 && initialPositionBlue_y == 0) {
+	if (initialPositionRed_x == 0 && initialPositionRed_y == 0) {
 		if (diceno == 1) {
-			std::cout << "Position" << getPositionx(diceno);
 			y1.setPosition(getPositionx(diceno), getPositiony(diceno));
 		}
 	}
@@ -63,8 +68,8 @@ void PlayerRed::setPosition(float diceno) {
 
 
 void PlayerRed::resetPosition() {
-	initialPositionBlue_x = 0;
-	initialPositionBlue_y = 0;
+	initialPositionRed_x = 0;
+	initialPositionRed_y = 0;
 	y1.setPosition(firstPositionx, firstPositiony);
 }
 float PlayerRed::getPosx() {

@@ -25,7 +25,7 @@ Menu::Menu(float width, float height)
 	//	Label : OPTIONS
 	menu[1].setFont(font);
 	menu[1].setFillColor(sf::Color::White);
-	menu[1].setString("CREDITS");
+	menu[1].setString("ABOUT US");
 	//	Specify postion for label dynamically
 	menu[1].setPosition(sf::Vector2f(labelWidth, height / (MAX_NUMBER_OF_LABELS + 1) * 2));
 
@@ -107,7 +107,7 @@ int Menu::returnClickedValue(sf::Vector2i mouseClickPos) {
 	if (mouseClickPos.x <= menu[0].getPosition().x + 50 && mouseClickPos.x >= menu[0].getPosition().x && mouseClickPos.y <= menu[0].getPosition().y + 30 && mouseClickPos.y >= menu[0].getPosition().y) {
 		return 0;
 	}
-		
+
 	else if (mouseClickPos.x <= menu[1].getPosition().x + 80 && mouseClickPos.x >= menu[1].getPosition().x && mouseClickPos.y <= menu[1].getPosition().y + 50 && mouseClickPos.y >= menu[1].getPosition().y) {
 		return 1;
 	}
@@ -117,12 +117,8 @@ int Menu::returnClickedValue(sf::Vector2i mouseClickPos) {
 	else {
 		return 10;
 	}
-	
+
 }
-
-
-
-
 int Menu::getPressedLabel() {
 	std::cout << selectedLabelIndex;
 	return selectedLabelIndex;

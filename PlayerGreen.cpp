@@ -41,12 +41,19 @@ void PlayerGreen::draw(sf::RenderWindow& window, int diceno) {
 float PlayerGreen::getPositiony(int movex) {
 
 	initialPosition_y += movex;
-	return PlayerPositiony[initialPosition_y] - 51;
+
+	if (initialPosition_y > 58) {
+		initialPosition_y = 58 - (initialPosition_y - 58);
+	}
+	return PlayerPositiony[initialPosition_y] - 50;
 
 }
 float PlayerGreen::getPositionx(int movex) {
 	initialPosition_x += movex;
-	return PlayerPositionx[initialPosition_x] - 51;
+	if (initialPosition_x > 58) {
+		initialPosition_x = 58 - (initialPosition_x - 58);
+	}
+	return PlayerPositionx[initialPosition_x] - 50;
 
 }
 float PlayerGreen::getPosx() {
@@ -56,4 +63,9 @@ float PlayerGreen::getPosx() {
 }
 float PlayerGreen::getPosy() {
 	return y1.getPosition().y;
+}
+void PlayerGreen::resetPosition() {
+	initialPosition_x = 0;
+	initialPosition_y = 0;
+	y1.setPosition(firstPositionx, firstPositiony);
 }

@@ -1,4 +1,3 @@
-
 #ifndef DICE_ANIMATIONS_H
 #define DICE_ANIMATIONS_H
 #include<SFML/Graphics.hpp>
@@ -14,14 +13,17 @@ public:
 	void Update(int row, float deltaTime);
 
 public:
-	sf::IntRect uvRect;
-private:
-	sf::Vector2u imageCount;
-	sf::Vector2u currentImage;
-	//controlling speed of animations
 
-	float totalTime;
-	float switchTime;
+	sf::IntRect uvRect;
+	//controlling speed of animations
+	float totalTime; //totaltime of animationn
+	float switchTime; //swithing time between one image to another
+	sf::Vector2u imageCount;//no of image in each row of the animation
+	sf::Vector2u currentImage;
+
+private:
+
+
 
 
 };

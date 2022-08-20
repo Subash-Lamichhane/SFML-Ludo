@@ -41,11 +41,17 @@ void PlayerBlue::draw(sf::RenderWindow& window,int diceno) {
 }
 float PlayerBlue::getPositiony(int movex) {
 	initialPositionBlue_y += movex;
+	if (initialPositionBlue_y > 58) {
+		initialPositionBlue_y = 58 - (initialPositionBlue_y - 58);
+	}
 	return PlayerPositiony[initialPositionBlue_y] - 50;
 
 }
 float PlayerBlue::getPositionx(int movex) {
 	initialPositionBlue_x += movex;
+	if (initialPositionBlue_x > 58) {
+		initialPositionBlue_x = 58 - (initialPositionBlue_x - 58);
+	}
 	return PlayerPositionx[initialPositionBlue_x] - 50;
 
 }

@@ -1,71 +1,21 @@
-﻿  PlayerRed.cpp
-C:\Users\Dell\Desktop\C++\ludoproject\PlayerRed.h(21,101): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Dell\Desktop\C++\ludoproject\PlayerRed.h(26,46): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Dell\Desktop\C++\ludoproject\PlayerRed.cpp(55,44): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Dell\Desktop\C++\ludoproject\PlayerRed.cpp(56,32): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Dell\Desktop\C++\ludoproject\PlayerRed.cpp(56,54): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Dell\Desktop\C++\ludoproject\PlayerRed.cpp(60,31): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Dell\Desktop\C++\ludoproject\PlayerRed.cpp(60,53): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  Source.cpp
-C:\Users\Dell\Desktop\C++\ludoproject\PlayerYellow.h(19,157): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Dell\Desktop\C++\ludoproject\PlayerYellow.h(24,105): warning C4305: 'initializing': truncation from 'double' to 'float'
+﻿  Source.cpp
 C:\Users\Dell\Desktop\C++\ludoproject\PlayerBlue.h(20,45): warning C4305: 'initializing': truncation from 'double' to 'float'
 C:\Users\Dell\Desktop\C++\ludoproject\PlayerBlue.h(25,152): warning C4305: 'initializing': truncation from 'double' to 'float'
 C:\Users\Dell\Desktop\C++\ludoproject\PlayerGreen.h(20,108): warning C4305: 'initializing': truncation from 'double' to 'float'
 C:\Users\Dell\Desktop\C++\ludoproject\PlayerGreen.h(25,101): warning C4305: 'initializing': truncation from 'double' to 'float'
 C:\Users\Dell\Desktop\C++\ludoproject\PlayerRed.h(21,101): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Dell\Desktop\C++\ludoproject\PlayerRed.h(26,46): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Dell\Desktop\C++\ludoproject\dice.cpp(40,19): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Dell\Desktop\C++\ludoproject\Source.cpp(31,61): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+C:\Users\Dell\Desktop\C++\ludoproject\PlayerRed.h(26,47): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Dell\Desktop\C++\ludoproject\PlayerYellow.h(19,157): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Dell\Desktop\C++\ludoproject\PlayerYellow.h(24,105): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Dell\Desktop\C++\ludoproject\Source.cpp(34,58): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
           with
           [
               T=unsigned int
           ]
-C:\Users\Dell\Desktop\C++\ludoproject\Source.cpp(31,36): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+C:\Users\Dell\Desktop\C++\ludoproject\Source.cpp(34,33): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
           with
           [
               T=unsigned int
           ]
-C:\Users\Dell\Desktop\C++\ludoproject\Source.cpp(328,83): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=int
-          ]
-C:\Users\Dell\Desktop\C++\ludoproject\Source.cpp(329,83): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=int
-          ]
-C:\Users\Dell\Desktop\C++\ludoproject\Source.cpp(376,83): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=int
-          ]
-C:\Users\Dell\Desktop\C++\ludoproject\Source.cpp(377,83): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=int
-          ]
-C:\Users\Dell\Desktop\C++\ludoproject\Source.cpp(423,83): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=int
-          ]
-C:\Users\Dell\Desktop\C++\ludoproject\Source.cpp(424,83): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=int
-          ]
-C:\Users\Dell\Desktop\C++\ludoproject\Source.cpp(470,83): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=int
-          ]
-C:\Users\Dell\Desktop\C++\ludoproject\Source.cpp(471,83): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=int
-          ]
-C:\Users\Dell\Desktop\C++\ludoproject\Source.cpp(511,25): warning C4551: function call missing argument list
-  Generating Code...
+C:\Users\Dell\Desktop\C++\ludoproject\Source.cpp(1976,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   ludoproject.vcxproj -> C:\Users\Dell\Desktop\C++\ludoproject\x64\Debug\ludoproject.exe
