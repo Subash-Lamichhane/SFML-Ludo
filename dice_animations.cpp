@@ -1,7 +1,6 @@
 #include "dice_animations.hpp"
 #include<iostream>
 
-
 dice_animations::dice_animations(sf::Texture* texture, sf::Vector2u imageCount, float switchTime)
 {
 	this->imageCount = imageCount; //since both have same name in different class(one from variable and one from passed function)
@@ -12,9 +11,6 @@ dice_animations::dice_animations(sf::Texture* texture, sf::Vector2u imageCount, 
 	uvRect.height = texture->getSize().y / float(imageCount.y);
 
 }
-//sf::Texture diceTexture;
-
-
 dice_animations::~dice_animations()
 {
 
@@ -33,13 +29,7 @@ void dice_animations::Update(int row, float deltaTime)
 		if(currentImage.x>=imageCount.x)
 		{
 			break;
-
-			//dicerollWindow.close();
-			//currentImage.x=0;
 		}
-
-
-
 		uvRect.left = currentImage.x * uvRect.width;
 		uvRect.top = currentImage.y * uvRect.height;
 	}

@@ -6,14 +6,14 @@
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
 #include <iostream>
-//#include "dice.cpp"
 #include "Menu.hpp"
 #include "dice_animations.hpp"
+#include"credits.hpp"
 
 using namespace std;
 
 int generateRandomNum();
-void resultAnimation(sf::RenderWindow& window , int);
+int resultAnimation(int);
 int dicerollfunc(sf::RenderWindow& window, int playerTurn);
 int main()
 {
@@ -76,6 +76,8 @@ int main()
 					if (menu.getPressedLabel() == 1 || menu.returnClickedValue(mouseClickPos) == 1)
 					{
 						//credits here
+						Credits credits;
+						credits.openCreditsWindow(MENU_WINDOW);
 					}
 					if (menu.getPressedLabel() == 0 || menu.returnClickedValue(mouseClickPos) == 0)
 					{
@@ -138,6 +140,50 @@ int main()
 						text.setString("Home");
 						text.setCharacterSize(24);
 						text.setStyle(sf::Text::Bold);
+
+							//for writing the turn of player
+							sf::Font instfont;
+							instfont.loadFromFile("NotoSans-Black.ttf");
+
+							sf::Text insttext;
+							insttext.setFont(instfont);
+							insttext.setCharacterSize(20);
+							insttext.setFillColor(sf::Color::Red);
+							insttext.setOrigin(900,100);
+							insttext.setPosition(100,200);
+							insttext.setString("ROlling the dice");
+
+							sf::Text ytext;
+							ytext.setFont(instfont);
+							ytext.setCharacterSize(20);
+							ytext.setFillColor(sf::Color::Red);
+							ytext.setOrigin(900,100);
+							ytext.setPosition(100,200);
+							ytext.setString("Yellow PLayer Turn");
+
+							sf::Text btext;
+							btext.setFont(instfont);
+							btext.setCharacterSize(20);
+							btext.setFillColor(sf::Color::Red);
+							btext.setOrigin(900,100);
+							btext.setPosition(100,200);
+							btext.setString("Blue player Turn");
+
+							sf::Text gtext;
+							gtext.setFont(instfont);
+							gtext.setCharacterSize(20);
+							gtext.setFillColor(sf::Color::Red);
+							gtext.setOrigin(900,100);
+							gtext.setPosition(100,200);
+							gtext.setString("Green Player turn");
+
+							sf::Text rtext;
+							rtext.setFont(instfont);
+							rtext.setCharacterSize(20);
+							rtext.setFillColor(sf::Color::Red);
+							rtext.setOrigin(900,100);
+							rtext.setPosition(100,200);
+							rtext.setString("Red Player Turn");
 
 						//game window
 						while (window.isOpen())
@@ -244,6 +290,9 @@ int main()
 									{
 										void resultAnimation(sf::RenderWindow& window, int winner= 1);
 									}
+									window.draw(insttext);
+									window.draw(gtext);
+
 									std::cout << "\n \n Player green turn";
 									Playerturn += 1;
 								}
@@ -414,10 +463,10 @@ int main()
 								else if (moveYellowPlayer == 4)
 								{
 									yellowPlayer4.draw(window, diceno);
-									// while(diceno==6||diceno==1)
-									// {
-									// 	yellowPlayer4.draw(window,diceno);
-									// }
+									 while(diceno==1||diceno==6)
+									 {
+									 	yellowPlayer4.draw(window,diceno);
+									 }
 									//for checking checkpoints
 									if ((yellowPlayer4.getPositionx(0) != 433.333 || yellowPlayer4.getPositionx(0) != 166.667 || yellowPlayer4.getPositionx(0) != 100. || yellowPlayer4.getPositionx(0) != 433.333 || yellowPlayer4.getPositionx(0) != 566.667 || yellowPlayer4.getPositionx(0) != 566.666 || yellowPlayer4.getPositionx(0) != 833.33 || yellowPlayer4.getPositionx(0) != 900.) && (yellowPlayer4.getPositiony(0) != 900. || yellowPlayer4.getPositiony(0) != 566.666 || yellowPlayer4.getPositiony(0) != 433.333 || yellowPlayer4.getPositiony(0) != 166.667 || yellowPlayer4.getPositiony(0) != 100. || yellowPlayer4.getPositiony(0) != 433.333 || yellowPlayer4.getPositiony(0) != 566.666 || yellowPlayer4.getPositiony(0) != 833.333))
 									{
@@ -1536,7 +1585,7 @@ int main()
 							insttext.setCharacterSize(20);
 							insttext.setFillColor(sf::Color::Red);
 							insttext.setOrigin(0,0);
-							insttext.setPosition(1000,600);
+							insttext.setPosition(1100,600);
 							insttext.setString("Press R to Roll the dice");
 
 
@@ -1546,8 +1595,8 @@ int main()
 							window.display();
 
 							//updating value of diceno
-							diceno = dicerollfunc(window,Playerturn);
-							std::cout << "/n You got: " << diceno << endl;
+							diceno = dicerollfunc(window, Playerturn);
+							std::cout << "\n You got: " << diceno << endl;
 
 							moveYellowPlayer = 10;
 							moveBluePlayer = 10;
@@ -1752,8 +1801,8 @@ int main()
 }
 
 //showing animations of result
-int resultAnimation(int a)
-{
+ int resultAnimation(int a)
+ {
 	// create the window
 	sf::RenderWindow winnerWindow(sf::VideoMode(800, 600), "Winner");
 	sf::Font font;
@@ -1774,16 +1823,10 @@ int resultAnimation(int a)
 
 		// select the font
 		winner.setFont(font); // font is a sf::Font
-
-		// set the string to display
-
-
 		// set the character size
 		winner.setCharacterSize(100); // in pixels, not points!
-
 		// set the color
 		winner.setFillColor(sf::Color::White);
-
 		// set the text style
 		winner.setStyle(sf::Text::Bold);
 		if (a == 1)
@@ -1802,11 +1845,7 @@ int resultAnimation(int a)
 		{
 			winner.setString("Blue Player is the winner");
 		}
-
-
-
-
-		// inside the main loop, between window.clear() and window.display()
+// inside the main loop, between window.clear() and window.display()
 		winnerWindow.draw(winner);
 
 
@@ -1819,154 +1858,10 @@ int resultAnimation(int a)
 		//window.display(winner);
 	}
 	return 0;
-}
+
+ }
 
 
-
-//dice roll function for dice animation
-//int dicerollfunc(sf::RenderWindow& window)
-// int dicerollfunc()
-// {
-// 	bool continueloop=true;
-// 						int diceno;
-// 						diceno = generateRandomNum();
-// 	sf::RenderWindow dicerollWindow(sf::VideoMode(512, 512), "DICEROLL");
-// 	dicerollWindow.setPosition(sf::Vector2i(900,0));
-// 	while (dicerollWindow.isOpen())
-// 	{
-// 		sf::Event roll_event;
-// 		while(dicerollWindow.pollEvent(roll_event))
-// 		{
-// 			if (roll_event.type==sf::Event::Closed)
-// 			{
-// 					dicerollWindow.close();
-// 			}
-
-// 						sf::Texture diceTexture;
-// 						diceTexture.setSmooth(true);
-// 							//choosing animations according to the generated random number
-// 					switch (diceno)
-// 					{
-// 					case 1:
-// 					break;
-
-// 					case 2:
-// 					diceTexture.loadFromFile("C:/ludo sam/ludo/got_two.png");
-// 					break;
-
-// 					case 3:
-// 					diceTexture.loadFromFile("C:/ludo sam/ludo/got_three.png");
-// 					break;
-
-// 					case 4:
-// 					diceTexture.loadFromFile("C:/ludo sam/ludo/got_four.png");
-// 					break;
-
-// 					case 5:
-// 					diceTexture.loadFromFile("C:/ludo sam/ludo/got_five.png");
-// 					break;
-
-// 					case 6:
-// 					diceTexture.loadFromFile("C:/ludo sam/ludo/got_six.png");
-// 					break;
-
-// 					default:
-// 					break;
-// 				}
-
-// 				sf::RectangleShape diceroll(sf::Vector2f(150.0f, 150.0f));
-// 				diceroll.setOrigin(0.0f, 0.0f);
-// 				diceroll.setPosition(100.0f, 600.0f);
-// 				diceroll.setTexture(&diceTexture);
-
-// 	// sf::Font instfont;
-// 	// 						instfont.loadFromFile("NotoSans-Black.ttf");
-
-// 	// 						sf::Text insttext;
-// 	// 						insttext.setFont(instfont);
-// 	// 						insttext.setCharacterSize(20);
-// 	// 						insttext.setFillColor(sf::Color::Red);
-// 	// 						insttext.setOrigin(900,100);
-// 	// 						insttext.setPosition(100,200);
-// 	// 						insttext.setString("ROlling the dice");
-
-
-// 	// 						window.draw(insttext);
-// 	// 						window.display();
-
-// 	//animation object
-// 	dice_animations animation(&diceTexture, sf::Vector2u(7, 1), 0.9f);
-// 	dicerollWindow.clear();
-
-
-
-// 			if(sf::Keyboard::isKeyPressed(sf::Keyboard::R))
-// 			{
-// 	float deltaTime = 0.0f;
-// 	sf::Clock clock;
-// 	//animation process
-// 	while (continueloop)
-
-// 	{
-
-// 		deltaTime = clock.restart().asSeconds();
-// 		sf::Event dice_event;
-// 		while (dicerollWindow.pollEvent(dice_event))
-// 		{
-// 			switch (dice_event.type)
-// 			{
-// 				case sf::Event::Closed:
-// 					dicerollWindow.close();
-// 					break;
-// 				default:
-// 				break;
-// 			}
-// 		}
-// 		// 			break;
-// 		// 			// case sf::Keyboard::N:
-// 		// 			// window.close();
-// 		// 			// break;
-// 		// 	}
-// 		// }
-// 		animation.Update(0, deltaTime);
-// 		 if(animation.currentImage.x>=animation.imageCount.x)
-//  												 	{
-//  														continueloop=false;
-//  													}
-// 		diceroll.setTextureRect(animation.uvRect);
-// 		dicerollWindow.clear();
-// 		dicerollWindow.draw(diceroll);
-// 		dicerollWindow.display();
-// 	}
-// 			}
-
-// 	// sf::Font nextplayerFont;
-// 	// 						nextplayerFont.loadFromFile("NotoSans-Black.ttf");
-
-// 	// 						sf::Text nextplayerText;
-// 	// 						nextplayerText.setFont(instfont);
-// 	// 						nextplayerText.setCharacterSize(20);
-// 	// 						nextplayerText.setFillColor(sf::Color::Red);
-// 	// 						nextplayerText.setOrigin(0,0);
-// 	// 						nextplayerText.setPosition(900,300);
-// 	// 						nextplayerText.setString("select the player to move");
-// 	// 						window.draw(nextplayerText);
-// 	// 						window.display();
-
-
-// 				if(roll_event.type==sf::Event::KeyPressed)
-// 				{
-// 				 if (sf::Keyboard::isKeyPressed(sf::Keyboard::N))
-// 				{
-// 					dicerollWindow.close();
-// 				}
-// 				}
-// 				dicerollWindow.display();
-// 		}
-// 	}
-
-// 	return diceno;
-// 	}
 
 
 
@@ -1984,154 +1879,187 @@ int generateRandomNum()
 int dicerollfunc(sf::RenderWindow& window, int playerTurn)
 {
 	 int diceno;
+	 bool ifenter = 0;
+
+	 sf::Font font;
+	 font.loadFromFile("Chocolate Covered Raindrops.ttf");
 	// diceno=generateRandomNum();
 	bool continueloop=true;
 	sf::RenderWindow dicerollWindow(sf::VideoMode(512,512),"DICE");
-		while (dicerollWindow.isOpen())
-		{
+	while (dicerollWindow.isOpen())
+	{
+		dicerollWindow.setPosition(sf::Vector2i(1000, 100));
 		sf::Event roll_event;
-			while (dicerollWindow.pollEvent(roll_event))
-	    	{
+		while (dicerollWindow.pollEvent(roll_event))
+		{
 
-				if (roll_event.type == sf::Event::Closed)
-								{
-									dicerollWindow.close();
- 								}
-				// if(roll_event.type == sf::Event::KeyPressed)
-					//window.setKeyRepeatEnabled(true);
-				// {
-    				//if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
-				  // {
-
-								diceno=generateRandomNum();
-
-								sf::Texture diceTexture;
-								diceTexture.setSmooth(true);
-								//choosing animations according to the generated random number
-								switch (diceno)
-								{
-									case 1:
-										diceTexture.loadFromFile("got_one.png");
-										break;
-
-									case 2:
-										diceTexture.loadFromFile("got_two.png");
-										break;
-
-									case 3:
-										diceTexture.loadFromFile("got_three.png");
-										break;
-									case 4:
-										diceTexture.loadFromFile("got_four.png");
-										break;
-
-									case 5:
-										diceTexture.loadFromFile("got_five.png");
-										break;
-
-									case 6:
-										diceTexture.loadFromFile("got_six.png");
-										break;
-
-									default:
-										break;
-								}
-
-											sf::RectangleShape diceroll(sf::Vector2f(150.0f,150.0f));
-											diceroll.setOrigin(0.0f,0.0f);
-											diceroll.setPosition(100.0f,200.0f);
-											diceroll.setTexture(&diceTexture);
-
-											sf::Font font;
-											font.loadFromFile("Chocolate Covered Raindrops.ttf");
-											sf::Text player;
-
-											// select the font
-											player.setFont(font); // font is a sf::Font
-
-											// set the string to display
-
-
-											// set the character size
-											player.setCharacterSize(25); // in pixels, not points!
-
-											// set the color
-											player.setFillColor(sf::Color::White);
-
-											// set the text style
-											player.setStyle(sf::Text::Bold);
-
-											dice_animations animation(&diceTexture, sf::Vector2u(7,1),0.9f);
-											if (playerTurn == 1) {
-												player.setString("Yellow Player got.");
-											}
-											if (playerTurn == 2) {
-												player.setString("Green Player got.");
-											}
-											if (playerTurn == 3) {
-												player.setString("Red Player got.");
-											}
-											if (playerTurn == 4) {
-												player.setString("Blue Player got.");
-											}
-											player.setPosition(0, 10);
-
-											float deltaTime=0.0f;
-											sf::Clock clock;
-												//animation process
-												while(continueloop)
-
-												{
-
-												deltaTime=clock.restart().asSeconds();
-												sf::Event dice_event;
-												while(window.pollEvent(dice_event))
-												{
-													switch(dice_event.type)
-													{
-														case sf::Event::Closed:
-														dicerollWindow.close();
-														break;
-														default:
-														break;
-
-													}
-
-												}
-
-
-
-												animation.Update(0,deltaTime);
-												 if(animation.currentImage.x>=animation.imageCount.x)
- 												 	{
- 														continueloop=false;
-														dicerollWindow.close();
-													}
-
-
-
-
-												diceroll.setTextureRect(animation.uvRect);
-												dicerollWindow.clear();
-												dicerollWindow.draw(diceroll);
-												dicerollWindow.draw(player);
-												dicerollWindow.display();
-
-
-												//  if(animation.totalTime<animation.switchTime)
-												// {
-												//  	break;
-												//  }
-
-												}
-												//dicerollWindow.display();
-					//}
-
-				 //}
+			if (roll_event.type == sf::Event::Closed)
+			{
+				dicerollWindow.close();
 			}
+
+			if (roll_event.type == sf::Event::KeyPressed) {
+				window.setKeyRepeatEnabled(true);
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
+			{
+				ifenter = 1;
+			}
+			if (ifenter) {
+				diceno = generateRandomNum();
+
+				sf::Texture diceTexture;
+				diceTexture.setSmooth(true);
+				//choosing animations according to the generated random number
+				switch (diceno)
+				{
+				case 1:
+					diceTexture.loadFromFile("got_one.png");
+					break;
+
+				case 2:
+					diceTexture.loadFromFile("got_two.png");
+					break;
+
+				case 3:
+					diceTexture.loadFromFile("got_three.png");
+					break;
+				case 4:
+					diceTexture.loadFromFile("got_four.png");
+					break;
+
+				case 5:
+					diceTexture.loadFromFile("got_five.png");
+					break;
+
+				case 6:
+					diceTexture.loadFromFile("got_six.png");
+					break;
+
+				default:
+					break;
+				}
+
+				sf::RectangleShape diceroll(sf::Vector2f(150.0f, 150.0f));
+				diceroll.setOrigin(0.0f, 0.0f);
+				diceroll.setPosition(100.0f, 200.0f);
+				diceroll.setTexture(&diceTexture);
+
+
+				sf::Text player;
+
+				// select the font
+				player.setFont(font); // font is a sf::Font
+
+				// set the string to display
+
+
+				// set the character size
+				player.setCharacterSize(25); // in pixels, not points!
+
+				// set the color
+				player.setFillColor(sf::Color::White);
+
+				// set the text style
+				player.setStyle(sf::Text::Bold);
+
+				dice_animations animation(&diceTexture, sf::Vector2u(7, 1), 0.9f);
+				if (playerTurn == 1) {
+					player.setString("Yellow Player got.");
+				}
+				if (playerTurn == 2) {
+					player.setString("Green Player got.");
+				}
+				if (playerTurn == 3) {
+					player.setString("Red Player got.");
+				}
+				if (playerTurn == 4) {
+					player.setString("Blue Player got.");
+				}
+				player.setPosition(0, 10);
+
+				float deltaTime = 0.0f;
+				sf::Clock clock;
+				//animation process
+				while (continueloop)
+
+				{
+
+					deltaTime = clock.restart().asSeconds();
+					sf::Event dice_event;
+					while (window.pollEvent(dice_event))
+					{
+						switch (dice_event.type)
+						{
+						case sf::Event::Closed:
+							dicerollWindow.close();
+							break;
+						default:
+							break;
+
+						}
+
+					}
+
+
+
+					animation.Update(0, deltaTime);
+					if (animation.currentImage.x >= animation.imageCount.x)
+					{
+						continueloop = false;
+						dicerollWindow.close();
+					}
+
+
+
+
+					diceroll.setTextureRect(animation.uvRect);
+					dicerollWindow.clear();
+					dicerollWindow.draw(diceroll);
+					dicerollWindow.draw(player);
+					dicerollWindow.display();
+
+				}
+
+
+
+
+
+
+
+			}
+			else {
+			sf::Text play;
+
+			// select the font
+			play.setFont(font); // font is a sf::Font
+
+			// set the string to display
+
+
+			// set the character size
+			play.setCharacterSize(25); // in pixels, not points!
+
+			// set the color
+			play.setFillColor(sf::Color::White);
+
+			// set the text style
+			play.setStyle(sf::Text::Bold);
+			play.setString("Press R to roll the dice.");
+
+			dicerollWindow.clear();
+			dicerollWindow.draw(play);
+			dicerollWindow.display();
+
+			}
+			ifenter = 0;
 
 
 		}
 
-		return diceno;
+	}
+
+
+
+		return (diceno);
 }

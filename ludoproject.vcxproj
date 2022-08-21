@@ -133,6 +133,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="credits.cpp" />
     <ClCompile Include="dice.cpp" />
     <ClCompile Include="dice_animations.cpp" />
     <ClCompile Include="Menu.cpp" />
@@ -143,6 +144,7 @@
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="credits.hpp" />
     <ClInclude Include="dice_animations.h" />
     <ClInclude Include="Menu.hpp" />
     <ClInclude Include="PlayerBlue.h" />
